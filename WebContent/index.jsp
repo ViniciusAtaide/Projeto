@@ -20,7 +20,7 @@
 	<div class="task_list">
 	<form action="updatedelete.do" method="post">
 		<c:forEach var="task" items="${tasks}">
-			<input type="checkbox" name="tasks"  value="${task.done}" /> ${task.name}
+			<input type="checkbox" name="tasks"  value="${task.id}" /> ${task.name}
 		</c:forEach>
 		<input type="submit" name="updatedelete" value="Mark selected as done" />
 		<input type="submit" name="updatedelete" value="Delete selected" />		

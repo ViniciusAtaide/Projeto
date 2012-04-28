@@ -118,7 +118,7 @@ public class DAOJPA<T> implements DAOInterface<T> {
 	}
 		
 	@SuppressWarnings("unchecked")
-	public int updadeAll(String consulta) {
+	public int updateAll(String consulta) {
 		Query q = getManager().createQuery(consulta);
 		int linhas = q.executeUpdate();
 		return linhas;
