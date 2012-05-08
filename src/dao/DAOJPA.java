@@ -19,7 +19,7 @@ public class DAOJPA<T> implements DAOInterface<T> {
 	protected static EntityManager getManager(){
 		if(manager==null){
 			EntityManagerFactory factory = 
-				Persistence.createEntityManagerFactory("agenda");
+				Persistence.createEntityManagerFactory("Projeto");
 			manager = factory.createEntityManager();
 		}
 		return manager;
@@ -98,8 +98,8 @@ public class DAOJPA<T> implements DAOInterface<T> {
 			return null;
 		}
 	}
-
-	public  List findAllByQuery(String consulta){		
+	@SuppressWarnings("rawtypes")
+	public List findAllByQuery(String consulta){		
 		try{
 			Query q = getManager().createQuery(consulta);
 			return q.getResultList();
@@ -112,17 +112,21 @@ public class DAOJPA<T> implements DAOInterface<T> {
 		}
 	}
 
-	public  List findAgregateByQuery(String consulta){
+	@SuppressWarnings("rawtypes")
+	public List findAgregateByQuery(String consulta){
 		Query q = getManager().createQuery(consulta);
 		return q.getResultList();
 	}
 		
-	@SuppressWarnings("unchecked")
 	public int updateAll(String consulta) {
 		Query q = getManager().createQuery(consulta);
 		int linhas = q.executeUpdate();
 		return linhas;
 	}
-	
+	public int deleteAll(String consulta) {
+		Query q = getManager().createQuery(consulta);
+		int linhas = q.executeUpdate();
+		return linhas;
+	}	
 }
 
